@@ -4,39 +4,33 @@ import {Text,
         Image, 
         ScrollView,
          Dimensions, 
-         StyleSheet } from "react-native";
+         StyleSheet, 
+         FlatList } from "react-native";
+import Cabecalho from "./src/componentes/cabecalho/index.js";
 
 const fotos = [
-  {titulo:"Wagner"}, 
-  {titulo:"Maria"},
-  {titulo:"Flavia"},
-  {titulo:"Julio Cesar"}
+  {id: 1, titulo:"Wagner"}, 
+  {id: 2, titulo:"Maria"},
+  {id: 3, titulo:"Flavia"},
+  {id: 4, titulo:"Julio Cesar"}
 ]
 
 const largura = Dimensions.get("screen").width;
 
-/** 
-<Text>Wagner</Text>
-      <Image source={require("./res/img/meuAvatar.png")} 
-        style={estilo.imagem} />
-
-      <Text>Maria adsaFSf</Text>
-      <Image source={require("./res/img/meuAvatar.png")} 
-        style={estilo.imagem} />
-*/
-
-
 const App = () => {
   return (
     <ScrollView>
-      {fotos.map(foto =>
+      <FlatList
+        data={fotos}
+        keyExtractor ={(item) => item.id.toString()}
+        renderItem={({item})=>
         <Fragment>
-          <Text>{foto.titulo}</Text>
-          <Image source={require("./res/img/meuAvatar.png")} 
-            style={estilo.imagem} />
-        </Fragment> 
-      )}
-      
+            <Cabecalho meuTitulo={item.titulo} />
+            <Image source={require("./res/img/meuAvatar.png")} 
+                  style={estilo.imagem} />
+        </Fragment>
+        }
+      />
     </ScrollView>
   )
 };
@@ -44,7 +38,7 @@ const App = () => {
 const estilo = StyleSheet.create({
   imagem:{
     width:largura,
-    height:largura
+    height:largura * 0.60
   }
 })
 
