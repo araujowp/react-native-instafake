@@ -7,39 +7,32 @@ import {Text,
          StyleSheet, 
          FlatList } from "react-native";
 import Cabecalho from "./src/componentes/cabecalho/index.js";
+import Foto from "./src/componentes/foto/index.js";
 
 const fotos = [
-  {id: 1, titulo:"Wagner"}, 
+  {id: 1, titulo:"Wagner Araujo"}, 
   {id: 2, titulo:"Maria"},
   {id: 3, titulo:"Flavia"},
-  {id: 4, titulo:"Julio Cesar"}
+  {id: 4, titulo:"Julio Cesar"},
+  {id: 5, titulo:"Andréia"},
+  {id: 6, titulo:"Luiza"}
 ]
 
 const largura = Dimensions.get("screen").width;
 
 const App = () => {
   return (
-    <ScrollView>
       <FlatList
         data={fotos}
         keyExtractor ={(item) => item.id.toString()}
         renderItem={({item})=>
         <Fragment>
             <Cabecalho meuTitulo={item.titulo} />
-            <Image source={require("./res/img/meuAvatar.png")} 
-                  style={estilo.imagem} />
+            <Foto />
         </Fragment>
         }
       />
-    </ScrollView>
   )
 };
-
-const estilo = StyleSheet.create({
-  imagem:{
-    width:largura,
-    height:largura * 0.60
-  }
-})
 
 export default App;
