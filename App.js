@@ -7,11 +7,11 @@ import {Text,
          StyleSheet, 
          FlatList } from "react-native";
 import {Cabecalho} from "./src/componentes/cabecalho/index.js";
-import Foto from "./src/componentes/foto/index.js";
+import {Foto} from "./src/componentes/foto/index.js";
 
 const fotos = [
   {id: 1, titulo:"Shugock Rengaw"},
-  {id: 1, titulo:"Wagner Araujo"}, 
+  {id: 1, titulo:"Wagner P. rAraujo"}, 
   {id: 2, titulo:"Maria"},
   {id: 3, titulo:"Flavia"},
   {id: 4, titulo:"Julio Cesar"},
