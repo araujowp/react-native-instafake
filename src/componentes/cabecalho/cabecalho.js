@@ -3,13 +3,14 @@ import {Text, Image, View
         } from "react-native";
 import estilo from "./estilo.js";
  
- const Cabecalho = ({meuTitulo}) => {
+ const Cabecalho = ({nomeUsuario, urlImagem}) => {
      return(
-        <View style={estilo.cabecalho}  >
-            <Image source={require("../../../res/img/meuAvatar.png")} 
-                   style={estilo.fotoUsuario}
+        <View style={estilo.cabecalho}>
+            <Image 
+                source={{uri : urlImagem }} 
+                style={estilo.fotoUsuario}
             />
-            <Text> {meuTitulo} </Text>
+            <Text> {nomeUsuario} </Text>
         </View>);
  }
 
