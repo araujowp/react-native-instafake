@@ -1,5 +1,5 @@
 import React, {Fragment, useState, useEffect} from 'react';
-import {ScrollView, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import {Cabecalho} from './src/componentes/cabecalho/index.js';
 import {Foto} from './src/componentes/foto/index.js';
 import lerFotos from './src/componentes/api/Feed.js';
@@ -12,11 +12,11 @@ const App = () => {
   return (
     <FlatList
       data={fotos}
-      keyExtractor ={(item) => item.id.toString()}
+      keyExtractor={(item) => item.id.toString()}
         renderItem={({item})=>
         <Fragment>
           <Cabecalho nomeUsuario={item.userName} urlImagem={item.userURL} />
-          <Foto urlFoto={item.userURL} descricao={item.description} />
+          <Foto urlFoto={item.userURL} descricao={item.description} qntLikes={item.likes}/>
         </Fragment>
         }
       />
