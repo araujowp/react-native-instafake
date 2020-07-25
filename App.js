@@ -8,6 +8,7 @@ const App = () => {
   const [fotos, setFotos] = useState([]);
   useEffect(() => {
     lerFotos(setFotos);
+    console.log("=====================================")
   }, []);
   return (
     <FlatList
