@@ -11,12 +11,10 @@ import { curtirFoto, imgLike } from '../api/Curtidas';
 
 
 const Foto = ({ urlFoto, descricao, qntLikes }) => {
-    console.log("no foto chegou " + qntLikes );
     const [curtiu, setCurtiu] = useState(false);
     const [likes, setLikes] = useState(qntLikes)
 
     const clicouCurtir = () => {
-        console.log("clicouCurtir: " +  likes )
         const [novoEstCurtiu, qnt] = curtirFoto(curtiu, likes)
         setLikes(qnt)
         setCurtiu(novoEstCurtiu)
@@ -30,7 +28,7 @@ const Foto = ({ urlFoto, descricao, qntLikes }) => {
             />
             <Text>{descricao}</Text>
             <View style={estilo.viewLike}>
-                <TouchableOpacity onPress={curtirFoto}>
+                <TouchableOpacity onPress={clicouCurtir}>
                     <Image
                         source={imgLike(curtiu)}
                         style={estilo.like}
